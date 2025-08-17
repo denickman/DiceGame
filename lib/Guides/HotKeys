@@ -1,1 +1,3 @@
 shift + option + f - indentation of the code 
+
+flutter pub get → equal to pod install

@@ -1,0 +1,51 @@
+🔹 Что значит «не хранит никакого состояния (он же StatelessWidget)»
+В Flutter есть два типа виджетов:
+StatelessWidget - 
+Он полностью определяется своими входными параметрами (props).
+У него нет внутренней переменной, которая может меняться со временем.
+Если надо что-то обновить → нужно пересоздать виджет с новыми параметрами.
+
+
+class MyText extends StatelessWidget {
+  final String title;
+
+  const MyText({super.key, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(title);
+  }
+}
+
+
+StatefulWidget
+У него есть внутреннее состояние, хранящееся в объекте State.
+Это состояние можно менять через setState(), и тогда Flutter перерисует только этот виджет.
+
+class Counter extends StatefulWidget {
+  const Counter({super.key});
+
+  @override
+  State<Counter> createState() => _CounterState();
+}
+
+class _CounterState extends State<Counter> {
+  int _count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text("$_count"),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              _count++; // меняем состояние
+            });
+          },
+          child: const Text("Increment"),
+        ),
+      ],
+    );
+  }
+}
