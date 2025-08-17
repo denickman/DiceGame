@@ -1,10 +1,11 @@
+import 'package:first_app/dice_roller.dart';
 import 'package:flutter/material.dart';
-// import 'package:first_app/styled_test.dart';
+import 'package:first_app/dice_roller.dart';
 
+// import 'package:first_app/styled_text.dart';
 
 const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
-
 
 
 // Option #1 
@@ -20,10 +21,10 @@ class GradientContainer extends StatelessWidget {
 // или ты вообще не используешь key,
 
   // first init
-  const GradientContainer(this.color1, this.color2, {super.key});
+   const GradientContainer(this.color1, this.color2, {super.key});
 
   // second 'convinience' init (alternative constructor function)
-   const GradientContainer.purple({super.key}) : color1 = Colors.deepPurple, color2 = Colors.indigo;
+  const GradientContainer.purple({super.key}) : color1 = Colors.deepPurple, color2 = Colors.indigo;
 
   final Color color1;
   final Color color2;
@@ -39,11 +40,14 @@ class GradientContainer extends StatelessWidget {
               end: endAlignment, 
             ),
           ),
-          child: Center(
-            child: Image.asset('assets/images/dice-2.png'),
-            ),
+          child: Center( // Center = виджет, который центрирует своего ребёнка и по вертикали, и по горизонтали.
+            child: DiceRoller()
+          ),
         );
   }
+
+
+
 }
 
 
